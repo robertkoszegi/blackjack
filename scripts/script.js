@@ -8,6 +8,8 @@
 // Version: 1.0
 // Date: 2021-07-22
 //
+// TO DO:
+// -merge reset() into intitialize()
 // -----------------------------------------------
 // -----------------------------------------------
 
@@ -129,7 +131,7 @@ function initialize() {
     playerCardsEl.innerHTML = '';
     dealerCardsEl.innerHTML = '';
     //clear notification
-    message = '';    
+    message = "Set a bet and press 'Deal' when ready.";    
 
     //Disable controls
     btnStand.style.display = "inline-block";
@@ -138,7 +140,7 @@ function initialize() {
     bettingDisabled(false)
 
     //Play status
-    endOfGame = false;
+    endOfGame = true;
 
     render()
 
@@ -342,6 +344,8 @@ function displayHand(playerDealer) {
 
 function deal() {
     //ON START button press:
+    //Play status
+    endOfGame = false;
     dealingPhase = true;
     //Disable bet buttons
     bettingDisabled(true);
@@ -464,7 +468,13 @@ function endOfTurn(pWinLooseTie){
         winnings = betAmount;
         betAmount = 0;
         chipAmount += winnings;
-        message = "You win $" + winnings + "!";
+        
+        if( winnings > 0) {
+            message = "You win $" + winnings + "!"
+        } else {
+            message = "You win!"
+        }
+
         // increase player score by one
         player.score ++
 
@@ -476,7 +486,13 @@ function endOfTurn(pWinLooseTie){
         winnings = betAmount * 1.5
         chipAmount += winnings
         betAmount = 0;
-        message = "BLACKJACK!!! You win $" + winnings + "!";
+        
+        if( winnings > 0) {
+            message = "BLACJACK!!! You win $" + winnings + "!"
+        } else {
+            message = "BLACKJACK!!! You win!"
+        }
+        
         // increase player score by one
         player.score ++
 
@@ -530,7 +546,7 @@ function reset() {
     dealersTurn = false;
 
     //End game marker
-    endOfGame = false;
+    endOfGame = true;
 
     // clear bet amount
     betAmount = 0;
@@ -546,7 +562,7 @@ function reset() {
     bettingDisabled(false);
 
     //clear notification
-    message = '';
+    message = "Set a bet and press 'Deal' when ready.";
 
     render()
 
