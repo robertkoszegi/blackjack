@@ -1,0 +1,120 @@
+<!-- 
+
+
+ --- CONSTANTS ----
+DECK ------------------
+array of card objects:
+Cards:
+suit: hearts
+rank: K
+value: 10
+card images: front and back (object and property)
+*entering file path should be part of the loop as well, based on numbered file names
+
+
+*Card objects are created and shuffled with loops
+
+PLAYERS --------
+Player(human)
+Dealer(computer)
+
+Player Properties:
+score: 5
+cardsInHand: [h8,cK]
+currentCardTotal:18
+
+
+
+--- PLAY ---
+
+START
+Initialize:
+-create and shuffle deck
+-create players (player / dealer objects)
+
+-dealer cards: one face up, one face down
+* two cards, one still not shown to player (but drawn from deck array)
+
+-player cards: two face up 
+
+scores are 0
+
+
+**best opening deal: Ace + any 10 point card (natural 21 or blackjack)** automatic win
+
+
+1
+player turn ( hits or stands ):
+-hit button  triggers pulling another card 
+-stand triggers the dealer to take turn
+if player total is >21 
+    loose
+	score added for dealer
+
+
+2	
+dealer's turn:
+face-down card gets turned (displayed to player)
+dealer draws on loop (timed delay between cards)
+while card total is <=16
+    dealer draws
+if dealer total <=17 && <=21	
+    dealer stands
+if dealer total is >21 	
+    loose
+	score for player
+
+3	
+Result
+player and dealer stand
+if dealer total < 21 AND player total <21
+    higher total wins
+    score value increased
+if tie	
+	show message
+    no change in score
+    
+    
+*Eachturn is with a new shuffled deck	
+
+    
+
+
+
+--- FUNCTIONS ---
+drawCard(dealerPlayer)
+* run any time a new card is needed 
+-removes a card from deck array (.pop)
+-adds card to hand (.push)
+-increase currentHandTotal by value of new card
+
+shuffleDeck()
+-returns an array with a randomized order of card objects
+
+createDeck()
+-nested loop through suits and card values
+
+
+
+
+
+
+ICEBOX:
+-variable ace value: 1 or 11, depending on situation (ie. paired with face card or number card) or player's choice
+-- A = 1 by default except if paired with a face card(hand has two cards)
+-consistent deck: shuffled when low, reusing discarded cards
+
+Betting
+-betting: player with starting amount. Each turn player can win $ == amount they bet.
+Variables:
+-playerChips
+-betAmount
+
+Function:
+payout()
+if player.handTotal > dealer.handTotal
+
+
+
+
+ -->

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script defer src="./scripts/script.js"></script>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/cardstarter.css">
+	<title>Robert's Blackjack Emporium</title>
+</head>
+<body>
+	<!-- HEADER -->
+	<header>
+		<div class="scoreWrap">
+			<h3>Player's Score</h3>
+			<h3 class="scoreDisplay" id="playerScore">0</h3>
+		</div>
+		<div class="titleWrap">
+			<h1>ROBERT'S BLACKJACK EMPORIUM</h1>
+			<h3 id="message" class="sectionTitle"></h3>
+		</div>
+		<div class="scoreWrap">
+			<h3>Dealer's Score</h3>
+			<h3 class="scoreDisplay" id="dealerScore"></h3>
+		</div>
+	</header>
+
+	<!-- MAIN -->
+	<main>
+		<!-- Betting -->
+		<div class="bettingBox">
+			<!-- Bet -->
+			<div class="betWrap">
+				<h3 class="sectionTitle">Place your bet...</h3>
+				<h3 class="dollar">$ <span id="betDisplay"></span></h3>
+				<div id="betSelectionWrap">
+					<button id="addTen" class="setBet" onclick="addToBet(10)">+$10</button>
+					<button id="addFifty" class="setBet" onclick="addToBet(50)">+$50</button>
+					<button id="addHundred" class="setBet" onclick="addToBet(100)">+$100</button>
+					<button id="betReset" class="setBet" onclick="addToBet(0)">Reset</button></br>
+					<button id="btnStart" class="setBet" onclick="deal()">Deal</button>
+				</div>
+			</div>
+			<!-- Chips -->
+			<div class="chipsWrap">
+				<h3 class="sectionTitle">My chips:</h3>
+				<h3 class="dollar">$ <span id="chipDisplay"></span></h3>
+				<h3 id="chipDisplay"></h3>
+
+			</div>
+		</div>
+		
+		<!-- Hands -->
+		<div class="handsWrap">
+			
+			<div id="dealerBox" class="opponentWrap">
+				<h3 class="sectionTitle">Dealer's Hand</h3>
+				<div id="dealerCards" class="cardsDisplay"></div>
+			</div>
+			<div id="playerBox" class="opponentWrap">
+				<h3 class="sectionTitle">Player's Hand</h3>
+				<div id="playerCards" class="cardsDisplay">
+					<!-- <img class="card" src="./images/cards/clubs-A.svg">
+						<img class="card" src="./images/cards/clubs-J.svg"> -->
+					</div>
+				</div>
+				
+			</div>
+			
+			<!-- Deck -->
+		<div class="deckWrap">
+			<div id="drawBtContainer">
+				<img id="deckImg" src="images/backs/blue.svg">
+				<div id=hitText>HIT!</div>
+			</div>
+			<!-- <button id="btnDraw" onclick="drawCard(player)">Draw</button> -->
+			<div class="controlsContainer">
+				<button class="btnControl" id="btnStand" onclick="dealerPlay()">Stand</button>
+				<button class="btnControl" id="btnReset" onclick="reset()">Play Again</button>
+			</div>
+		</div>
+
+	</main>
+	<!-- The Modal -->
+	<div id="mdl">
+
+		<!-- Modal content -->		
+		<div class="modalContent">
+			<span id="mdlClose">&times;</span>
+			<p>You ran out of money ( SAD FACE! )</p>
+		</div>
+
+	</div>	
+</body>
+</html>
